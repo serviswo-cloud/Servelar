@@ -4,21 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Moto Clube - Sistema de Cadastro</title>
-    <!-- Bootstrap 5 CDN -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- CSS Personalizado do Flask -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
-
-    <!-- Barra de Navegação Temática -->
     <nav class="navbar navbar-dark bg-dark border-bottom border-danger border-3">
         <div class="container-fluid">
-            <a class="navbar-brand fw-bold d-flex align-items-center" href="/">
-                <img src="{{ url_for('static', filename='img/logo.png') }}" alt="Logo" class="me-2" style="height: 40px; background: transparent;">
-                <span>MOTO<span class="text-warning"> CLUBE MAVERICKS</span></span>
+            <a class="navbar-brand fw-bold" href="/">
+                <span class="text-danger">🏍️</span> MOTO<span class="text-warning">CLUBE MAVERCIKS</span>
             </a>
-            <div class="navbar-nav d-flex flex-row gap-3">
+            <div class="navbar-nav">
                 <a class="nav-link" href="/">Inicial</a>
                 <a class="nav-link" href="/formulario">Cadastro</a>
                 <a class="nav-link" href="/dashboard">Dashboard</a>
@@ -26,17 +21,14 @@
         </div>
     </nav>
 
-    <!-- Bloco de Conteúdo Dinâmico -->
     <main class="container my-5">
         {% block content %}{% endblock %}
     </main>
 
-    <!-- Rodapé Temático -->
     <footer class="bg-dark text-warning text-center py-4 mt-5 border-top border-warning border-3">
         <p class="mb-0">© 2026 Mavericks Moto Clube System - Todos os direitos reservados</p>
     </footer>
 
-    <!-- Bootstrap 5 JavaScript CDN -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
