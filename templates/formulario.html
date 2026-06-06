@@ -1,0 +1,115 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-lg-6">
+        <div class="card bg-dark border-danger border-3 shadow-lg">
+            <div class="card-header bg-danger">
+                <h3 class="text-white mb-0">📝 CADASTRO DE PARTICIPANTE</h3>
+            </div>
+            <div class="card-body">
+                <form action="/salvar" method="POST">
+                    <div class="mb-3">
+                        <label class="form-label text-warning fw-bold">Nome do Motociclista *</label>
+                        <input type="text" class="form-control bg-dark text-light border-warning" 
+                               name="motociclista" placeholder="Digite seu nome completo" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label text-warning fw-bold">Moto Clube *</label>
+                        <select class="form-select bg-dark text-light border-warning" name="moto_clube" required>
+                            <option value="">Selecione um moto clube</option>
+                            <option value="Harley Davidson">Harley Davidson</option>
+                            <option value="Honda">Honda</option>
+                            <option value="Yamaha">Yamaha</option>
+                            <option value="Suzuki">Suzuki</option>
+                            <option value="Kawasaki">Kawasaki</option>
+                            <option value="BMW">BMW</option>
+                            <option value="Outro">Outro</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label text-warning fw-bold">Tem Acompanhante? *</label>
+                        <div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="tem_acompanhante" 
+                                       value="Não" id="sem_acompanhante" checked onchange="toggleAcompanhante()">
+                                <label class="form-check-label text-light" for="sem_acompanhante">
+                                    Não, vou sozinho
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="tem_acompanhante" 
+                                       value="Sim" id="com_acompanhante" onchange="toggleAcompanhante()">
+                                <label class="form-check-label text-light" for="com_acompanhante">
+                                    Sim, tenho acompanhante
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-3" id="acompanhante_div" style="display:none;">
+                        <label class="form-label text-warning fw-bold">Nome do Acompanhante</label>
+                        <input type="text" class="form-control bg-dark text-light border-warning" 
+                               name="acompanhante_nome" placeholder="Digite o nome do acompanhante">
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label text-warning fw-bold">Cidade *</label>
+                            <input type="text" class="form-control bg-dark text-light border-warning" 
+                                   name="cidade" placeholder="Digite sua cidade" required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label text-warning fw-bold">Estado *</label>
+                            <select class="form-select bg-dark text-light border-warning" name="estado" required>
+                                <option value="">Selecione</option>
+                                <option value="AC">Acre</option>
+                                <option value="AL">Alagoas</option>
+                                <option value="AP">Amapá</option>
+                                <option value="AM">Amazonas</option>
+                                <option value="BA">Bahia</option>
+                                <option value="CE">Ceará</option>
+                                <option value="DF">Distrito Federal</option>
+                                <option value="ES">Espírito Santo</option>
+                                <option value="GO">Goiás</option>
+                                <option value="MA">Maranhão</option>
+                                <option value="MT">Mato Grosso</option>
+                                <option value="MS">Mato Grosso do Sul</option>
+                                <option value="MG">Minas Gerais</option>
+                                <option value="PA">Pará</option>
+                                <option value="PB">Paraíba</option>
+                                <option value="PR">Paraná</option>
+                                <option value="PE">Pernambuco</option>
+                                <option value="PI">Piauí</option>
+                                <option value="RJ">Rio de Janeiro</option>
+                                <option value="RN">Rio Grande do Norte</option>
+                                <option value="RS">Rio Grande do Sul</option>
+                                <option value="RO">Rondônia</option>
+                                <option value="RR">Roraima</option>
+                                <option value="SC">Santa Catarina</option>
+                                <option value="SP">São Paulo</option>
+                                <option value="SE">Sergipe</option>
+                                <option value="TO">Tocantins</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-danger btn-lg fw-bold">✅ CADASTRAR</button>
+                        <a href="/" class="btn btn-secondary">← VOLTAR</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+function toggleAcompanhante() {
+    const acompDiv = document.getElementById('acompanhante_div');
+    const comAcompanhante = document.getElementById('com_acompanhante').checked;
+    acompDiv.style.display = comAcompanhante ? 'block' : 'none';
+}
+</script>
+{% endblock %}

@@ -1,0 +1,58 @@
+:root {
+    --bg-dark: #1a1a1a;
+    --accent-red: #d32f2f;
+    --accent-gold: #ffc107;
+    --text-light: #ffffff;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    font-family: 'Segoe UI', Roboto, sans-serif;
+}
+
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(211, 47, 47, 0.3);
+}
+
+.btn-danger {
+    background-color: var(--accent-red);
+    border-color: var(--accent-red);
+}
+
+.btn-danger:hover {
+    background-color: #b71c1c;
+    border-color: #b71c1c;
+}
+
+.text-warning {
+    color: var(--accent-gold) !important;
+}
+
+.border-danger {
+    border-color: var(--accent-red) !important;
+}
+
+.border-warning {
+    border-color: var(--accent-gold) !important;
+}
+
+table {
+    font-size: 0.95rem;
+}
+
+@media (max-width: 768px) {
+    .table {
+        font-size: 0.85rem;
+    }
+    
+    .btn {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.9rem;
+    }
+}
